@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CountriesCard from './CountriesCard';
 import data from '../data';
 
 function CountriesList({ query }) {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        setCountries(data)
+    }, []);
+
   return (
     <div className='countries-container'>
         {
-            data ? data.filter((ele) => ele.name.official.toLowerCase().includes(query))
+            countries ? countries.filter((ele) => ele.name.official.toLowerCase().includes(query))
             .map((ele, index) => 
                 <CountriesCard
                 key={index}
