@@ -1,6 +1,7 @@
+import { useTheme } from "../hooks/useTheme";
 
-function Header({theme}) {
-  const [isDark, setIsDark] = theme;
+function Header() {
+  const [isDark, setIsDark] = useTheme();;
 
   function changeTheme(){
     setIsDark(!isDark)

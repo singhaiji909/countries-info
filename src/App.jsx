@@ -1,16 +1,16 @@
 import './App.css'
 import { Outlet } from 'react-router-dom'
 import Header from './components/header'
-import { useState } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext.jsx';
 
 
 function App () {
-  const [ isDark, setIsDark ] = useState(false);
+
   return (
-    <>
-      <Header theme={[isDark, setIsDark]}/>
-      <Outlet context={[ isDark ]}/>
-    </>
+    <ThemeProvider>
+      <Header />
+      <Outlet />
+    </ThemeProvider>
   )
 }
 
