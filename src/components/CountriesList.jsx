@@ -9,12 +9,13 @@ function CountriesList({ query }) {
     useEffect(() => {
         setCountries(data)
     }, []);
-
+    
   return (
     <div className='countries-container'>
-        {/* <CountyListShimmer /> */}
         {
-            countries.length ? countries.filter((ele) => ele.name.official.toLowerCase().includes(query))
+            countries.length ? countries.filter((ele) => ele.name.official.toLowerCase().includes(query.toLowerCase()) ||
+            ele.region.toLowerCase().includes(query.toLowerCase())
+            )
             .map((ele, index) => 
                 <CountriesCard
                 key={index}
