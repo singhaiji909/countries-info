@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function CountriesCard({ name, flag, population, region, capital }) {
+function CountriesCard({ name, flag, population, region, capital, data }) {
+
   return (
     <div>
-    <Link className="country-card" to={`/${name}`}>
+    <Link className="country-card" to={`/${name}`} state={data}>
     <img src={flag} alt={name + ' Flag'} />
     <div className="card-text">
       <h3 className="card-title">{name}</h3>
